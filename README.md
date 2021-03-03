@@ -1,2 +1,2 @@
-# mini-sedie-service
+# vip-sedie-service
 
