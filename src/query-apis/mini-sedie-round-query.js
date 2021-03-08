@@ -1,6 +1,11 @@
 import { Core } from "sc-game-base";
+import { ResultHelper } from "../helpers/index";
 
 export default class MiniSeDieRoundQuery extends Core.QueryApis.RoundQuery {
+    convertSettlementResult(roundResult) {
+        return ResultHelper.getSettlementResult(roundResult);
+    }
+
     convertResult(round) {
         return {
             red1: round.red1,
