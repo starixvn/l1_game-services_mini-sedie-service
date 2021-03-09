@@ -40,7 +40,7 @@ export default class MiniSeDieContainerRegistry extends Core.ContainerRegistry {
         super.registerApis();
 
         this.container.register({
-            roundQuery: asClass(MiniSeDieRoundQuery).singleton().proxy(),
+            roundQuery: asClass(MiniSeDieRoundQuery).singleton(),
         });
     }
 }
