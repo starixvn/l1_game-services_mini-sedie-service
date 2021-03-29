@@ -14,7 +14,7 @@ export default {
         enabledApiLogs: true,
     },
     mainServerApiSettings: {
-        url: "http://haproxy.lumigame.com:7002/main/api",
+        url: "http://haproxy.lumigame.com:7001/main/api",
         auth: {
             url: "http://l1-auth1.lumigame.com",
             id: "game-services",
@@ -41,8 +41,8 @@ export default {
     },
     sentry: {
         sentryUrl: "https://f236f54fc8094619bc566f3903943637@sentryuat.sabagame.com/188",
-        logIdentifier: "vipsedie",
-        env: "LOCAL",
+        logIdentifier: "mini-sedie",
+        env: "LOCAL_1",
     },
     authenticateSettings: {
         audiences: ["api", "admin-api"],

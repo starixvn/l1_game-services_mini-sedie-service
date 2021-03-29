@@ -1,5 +1,5 @@
 export default {
-    hostingPort: 7001,
+    hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
         apiUrl: "http://10.2.189.51:7300",
@@ -41,7 +41,7 @@ export default {
     },
     sentry: {
         sentryUrl: "http://846d748df9dd4592804e04f950ea9dfb@10.99.99.187:800/122",
-        logIdentifier: "vipsedie",
+        logIdentifier: "mini-sedie",
         env: "UAT",
     },
     authenticateSettings: {
