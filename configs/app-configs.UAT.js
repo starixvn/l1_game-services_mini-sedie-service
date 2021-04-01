@@ -41,7 +41,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://846d748df9dd4592804e04f950ea9dfb@10.99.99.187:800/122",
+        sentryUrl: "http://c85e77b8dd444514a9b39bd05e9a4154@10.99.99.187:800/252",
         logIdentifier: "mini-sedie",
         env: "UAT",
     },
