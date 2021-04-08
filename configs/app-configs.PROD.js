@@ -32,14 +32,14 @@ export default {
     },
     enabledLogs: true,
     database: {
-        // url:
-        //     "mongodb://lmn_backend:M7K4ttH%2AtZ3ml%3F%29%7CA%5DjN4%3FLBhwF%266IO%3C@10.99.99.54:27101,10.99.99.53:27102/?replicaSet=SabaMain",
-        // options: {
-        //     dbName: "minigame",
-        //     useNewUrlParser: true,
-        //     useUnifiedTopology: true,
-        //     auto_reconnect: true,
-        // },
+        url:
+            "mongodb://lmn_backend:M7K4ttH%2AtZ3ml%3F%29%7CA%5DjN4%3FLBhwF%266IO%3C@10.99.99.54:27101,10.99.99.53:27102/?replicaSet=SabaMain",
+        options: {
+            dbName: "minigame",
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            auto_reconnect: true,
+        },
     },
     sentry: {
         sentryUrl: "http://427e171d1c7347e6a2a4db50c58e0e99@10.99.99.187:803/148",
