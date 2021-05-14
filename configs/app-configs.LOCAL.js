@@ -41,7 +41,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "https://547b4d1f691942a9a62db1cb021f14d1@sentry.lumigame.com/7",
+        sentryUrl: "https://13f39b8359404ed5aec23655e64ccf78@sentry.lumigame.com/2",
         logIdentifier: "mini-sedie",
         env: "LOCAL",
     },

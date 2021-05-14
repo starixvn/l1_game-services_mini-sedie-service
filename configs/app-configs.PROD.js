@@ -42,7 +42,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://427e171d1c7347e6a2a4db50c58e0e99@10.99.99.187:803/148",
+        sentryUrl: "http://58fc00e79ab34a3bab04a79038760cb8@10.99.99.187:803/8",
         logIdentifier: "mini-sedie",
         env: "PROD",
     },
