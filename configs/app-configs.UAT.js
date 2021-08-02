@@ -57,5 +57,7 @@ export default {
         "https://uat-adm.sabagame.com",
         "http://uatm.sabagame.com",
         "https://uatm.sabagame.com",
+        "http://minisit.sgamesuat.com",
+        "https://minisit.sgamesuat.com",
     ],
 };
