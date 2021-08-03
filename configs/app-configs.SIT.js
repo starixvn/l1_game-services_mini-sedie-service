@@ -58,7 +58,7 @@ export default {
         "https://sit-adm.sabagame.com",
         "http://sitm.sabagame.com",
         "https://sitm.sabagame.com",
-        "http://miniuat.sgamesuat.com",
-        "https://miniuat.sgamesuat.com",
+        "http://minisit.sgamesuat.com",
+        "https://minisit.sgamesuat.com",
     ],
 };
