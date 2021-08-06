@@ -60,5 +60,7 @@ export default {
         "https://admin.lumigame.com",
         "http://l1-m.lumigame.com",
         "https://l1-m.lumigame.com",
+        "http://l1-mini.lumigame.com",
+        "https://l1-mini.lumigame.com",
     ],
 };
