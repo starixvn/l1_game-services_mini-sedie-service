@@ -2,6 +2,8 @@ import { userInfos } from "sc-base-database";
 import { helpers } from "sc-common";
 import { Core } from "sc-game-base";
 
+import constants from "../constants";
+
 export default class MiniSeDieBot extends Core.Crons.BaseBot {
     constructor(definition, gameData, userInfosRepository) {
         super(definition, gameData, userInfosRepository);
@@ -17,6 +19,7 @@ export default class MiniSeDieBot extends Core.Crons.BaseBot {
         this.rareOpts = ["red4", "white4"];
 
         this.smallTicketRatio = 70;
+        this.smallTicketValueRatio = 50;
         this.smallTickets = 0;
         this.resetAllBets();
     }
@@ -25,7 +28,7 @@ export default class MiniSeDieBot extends Core.Crons.BaseBot {
         const choice = this.getBetChoice(bot);
         const minBet = this.getMinBet();
         const maxBet = this.getMaxBet(bot, choice);
-        const betAmount = this.getBetAmount(minBet, maxBet);
+        const betAmount = this.convertAmountToChip(helpers.numberHelper.getRandomNumberStep5(minBet, maxBet, true));
 
         if (this.gameData.remainingTime > this.definition.durations.lockingBet) {
             this.gameData.totalBets[choice] = (this.gameData.totalBets[choice] ?? 0) + betAmount;
@@ -70,10 +73,6 @@ export default class MiniSeDieBot extends Core.Crons.BaseBot {
         this.smallTickets = 0;
     }
 
-    getBetAmount(minBet, maxBet) {
-        return this.chance.integer({ min: minBet, max: maxBet });
-    }
-
     getBetChoice(bot) {
         const totalBotBet = this.getAllBetAmount();
 
@@ -94,12 +93,9 @@ export default class MiniSeDieBot extends Core.Crons.BaseBot {
 
         const underRatioGroups = helpers.arrayHelper.shuffle(betChoiceRatios.filter((data) => data.underBetRatio));
 
-        const choice =
-            underRatioGroups.length > 0
-                ? this.getRandomChoiceFromGroup(underRatioGroups[0].group)
-                : this.getRandomChoiceFromGroup(this.mainOpts);
-
-        return choice;
+        return underRatioGroups.length > 0
+            ? this.getRandomChoiceFromGroup(underRatioGroups[0].group)
+            : this.getRandomChoiceFromGroup(this.mainOpts);
     }
 
     getMaxBet(bot, choice) {
@@ -108,7 +104,7 @@ export default class MiniSeDieBot extends Core.Crons.BaseBot {
         const isSmallTicket = this.totalTickets === 0 ? true : (this.smallTickets * 100) / this.totalTickets < this.smallTicketRatio;
         let maxBet = Math.min(gameConfigs.choices_maxbet[choice], gameConfigs.bot_maxbet);
 
-        const maxBetOfSmallTicket = Math.min(minBet * 50, maxBet);
+        const maxBetOfSmallTicket = Math.min(minBet * this.smallTicketValueRatio, maxBet);
 
         if (this.rareOpts.includes(choice)) {
             maxBet = Math.min(minBet * 10, gameConfigs.bot_maxbet * 0.2, gameConfigs.choices_maxbet[choice]);
@@ -139,9 +135,7 @@ export default class MiniSeDieBot extends Core.Crons.BaseBot {
     }
 
     getRandomChoiceFromGroup(group) {
-        const randomIndex = (Math.random() * group.length) >> 0;
-
-        return group[randomIndex];
+        return this.chance.pickone(group);
     }
 
     getTotalAmountOnChoiceGroup(choices) {
@@ -159,10 +153,12 @@ export default class MiniSeDieBot extends Core.Crons.BaseBot {
     }
 
     isSmallTicket(amount) {
-        return amount <= this.getMinBet() * 50;
+        return amount <= this.getMinBet() * this.smallTicketValueRatio;
     }
 
-    getTotalBetAmount(currentBet) {
-        return currentBet ? this.definition.choices.reduce((total, choice) => total + currentBet[choice], 0) : 0;
+    convertAmountToChip(amount) {
+        const chipList = constants.chips.filter((chip) => amount / chip >= 1);
+
+        return chipList.length > 0 ? chipList[0] : this.getMinBet();
     }
 }

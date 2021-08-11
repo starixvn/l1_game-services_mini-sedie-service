@@ -1,3 +1,7 @@
+import Chance from "chance";
+
+const chance = new Chance();
+
 const settlementRuleEntries = Object.entries({
     odd: (totalReds) => totalReds % 2 === 1,
     even: (totalReds) => totalReds % 2 === 0,

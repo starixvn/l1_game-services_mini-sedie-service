@@ -32,8 +32,7 @@ export default {
     },
     enabledLogs: true,
     database: {
-        url:
-            "mongodb://lmn_backend:M7K4ttH%2AtZ3ml%3F%29%7CA%5DjN4%3FLBhwF%266IO%3C@10.99.99.54:27101,10.99.99.53:27102/?replicaSet=SabaMain",
+        url: "mongodb://lmn_backend:M7K4ttH%2AtZ3ml%3F%29%7CA%5DjN4%3FLBhwF%266IO%3C@10.99.99.54:27101,10.99.99.53:27102/?replicaSet=SabaMain",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -42,7 +41,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://58fc00e79ab34a3bab04a79038760cb8@10.99.99.187:803/8",
+        sentryUrl: "http://58fc00e79ab34a3bab04a79038760cb8@10.2.189.50:9009/8",
         logIdentifier: "mini-sedie",
         env: "PROD",
     },
@@ -64,5 +63,13 @@ export default {
         "https://admg.sabagame.com",
         "http://adm.sabagame.com",
         "https://adm.sabagame.com",
+        "http://m.sabagame.com",
+        "https://m.sabagame.com",
+        "http://m.gamesaba.com",
+        "https://m.gamesaba.com",
+        "http://mini.sabagame.com",
+        "https://mini.sabagame.com",
+        "http://mini.gamesaba.com",
+        "https://mini.gamesaba.com",
     ],
 };
