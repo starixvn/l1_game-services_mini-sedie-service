@@ -60,5 +60,13 @@ export default {
         "https://sitm.sabagame.com",
         "http://minisit.sgamesuat.com",
         "https://minisit.sgamesuat.com",
+        "http://l1sitadm.sgamesuat.com",
+        "https://l1sitadm.sgamesuat.com",
+        "http://l1sitm.sgamesuat.com",
+        "https://l1sitm.sgamesuat.com",
+        "http://l1sit.sgamesuat.com",
+        "https://l1sit.sgamesuat.com",
+        "http://l1minisit.sgamesuat.com",
+        "https://l1minisit.sgamesuat.com",
     ],
 };

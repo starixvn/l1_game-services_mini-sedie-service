@@ -59,5 +59,13 @@ export default {
         "https://uatm.sabagame.com",
         "http://miniuat.sgamesuat.com",
         "https://miniuat.sgamesuat.com",
+        "http://l1uat.sgamesuat.com",
+        "https://l1uat.sgamesuat.com",
+        "http://l1uatadm.sgamesuat.com",
+        "https://l1uatadm.sgamesuat.com",
+        "http://l1uatm.sgamesuat.com",
+        "https://l1uatm.sgamesuat.com",
+        "http://l1miniuat.sgamesuat.com",
+        "https://l1miniuat.sgamesuat.com",
     ],
 };
