@@ -4,8 +4,8 @@
     "description": "",
     "main": "./src/app.js",
     "scripts": {
-        "test": "jest",
-        "test-coverage": "jest --collect-coverage",
+        "test": "jest --testPathPattern=tests/unit-tests/",
+        "test-coverage": "jest --collect-coverage --testPathPattern=tests/unit-tests/",
         "dev": "nodemon --es-module-specifier-resolution=node --watch ./src ./src/app.js",
         "debug": "nodemon --es-module-specifier-resolution=node --watch ./ --inspect ./src/app.js",
         "prod": "node --max-old-space-size=8192 --es-module-specifier-resolution=node ./src/app.js",

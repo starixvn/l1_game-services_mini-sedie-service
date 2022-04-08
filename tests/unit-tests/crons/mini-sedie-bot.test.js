@@ -5,10 +5,10 @@ import { Core } from "sc-game-base";
 import { BaseBot } from "sc-game-base/src/core/crons";
 import { BaseEventPublisher } from "sc-game-base/src/core/event-publishers";
 
-import constants from "../../constants";
-import gameSettings from "../../game-settings";
-import { generateResult, getSettlementResult } from "../../helpers/result-helper";
-import MiniSeDieBot from "../mini-sedie-bot";
+import constants from "../../../src/constants";
+import gameSettings from "../../../src/game-settings";
+import { generateResult, getSettlementResult } from "../../../src/helpers/result-helper";
+import MiniSeDieBot from "../../../src/crons/mini-sedie-bot";
 
 const definition = new Core.GameDefinition(gameSettings, generateResult, getSettlementResult);
 const gameData = new Core.GameData(gameSettings.durations.wholeRound, constants.resetTotalBets);

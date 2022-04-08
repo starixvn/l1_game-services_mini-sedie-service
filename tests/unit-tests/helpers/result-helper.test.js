@@ -1,4 +1,4 @@
-import { generateResult, getSettlementResult, generateRawResultForHash } from "../result-helper";
+import { generateResult, getSettlementResult, generateRawResultForHash } from "../../../src/helpers/result-helper";
 
 describe("getSettlementResult tests", () => {
     describe("when results have ONE red", () => {

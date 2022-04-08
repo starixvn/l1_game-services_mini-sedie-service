@@ -2,7 +2,7 @@ import Chance from "chance";
 import { helpers } from "sc-common";
 import { Core } from "sc-game-base";
 
-import MiniSeDiePlaceBetConsumer from "../mini-sedie-place-bet-consumer";
+import MiniSeDiePlaceBetConsumer from "../../../src/consumers/mini-sedie-place-bet-consumer";
 
 describe("composeBettingTimeValidationCriteria tests", () => {
     const playerName = "nhanvat01";
