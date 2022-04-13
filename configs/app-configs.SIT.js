@@ -69,5 +69,5 @@ export default {
         "http://l1minisit.sgamesuat.com",
         "https://l1minisit.sgamesuat.com",
     ],
-    enableMsgpackParser: false,
+    enableMsgpackParser: true,
 };
