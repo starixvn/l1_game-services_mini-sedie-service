@@ -1,7 +1,7 @@
 import Chance from "chance";
 import { Core } from "sc-game-base";
 
-import MiniSeDieGameCron from "../mini-sedie-game-cron";
+import MiniSeDieGameCron from "../../../src/crons/mini-sedie-game-cron";
 
 describe("composeBettingTimeValidationCriteria tests", () => {
     const gameData = new Core.GameData();
