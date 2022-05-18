@@ -63,5 +63,5 @@ export default {
         "http://l1-mini3.lumigame.com",
         "https://l1-mini3.lumigame.com",
     ],
-    enableMsgpackParser: true,
+    enableMsgpackParser: false,
 };
