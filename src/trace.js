@@ -37,7 +37,7 @@ const trace = new NodeSDK({
     instrumentations: [
         new HttpInstrumentation({
             ignoreIncomingRequestHook: (req) => {
-                return req.method === "GET" && req.hostname.includes("/");
+                return req.method === "GET" && req.url.pathname === "/";
             },
         }),
         new MongooseInstrumentation(),
