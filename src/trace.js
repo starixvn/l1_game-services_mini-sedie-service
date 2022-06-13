@@ -8,6 +8,7 @@ import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions"
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { CompositePropagator, W3CTraceContextPropagator, W3CBaggagePropagator } from "@opentelemetry/core";
 import { MongooseInstrumentation } from "opentelemetry-instrumentation-mongoose";
+import { MongoDBInstrumentation } from "@opentelemetry/instrumentation-mongodb";
 import { B3InjectEncoding, B3Propagator } from "@opentelemetry/propagator-b3";
 
 const trace = new NodeSDK({
@@ -39,6 +40,7 @@ const trace = new NodeSDK({
         }),
         new MongooseInstrumentation(),
         new SocketIoInstrumentation(),
+        new MongoDBInstrumentation(),
     ],
 });
 
