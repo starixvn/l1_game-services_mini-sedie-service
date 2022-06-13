@@ -8,6 +8,7 @@ import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions"
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { CompositePropagator, W3CTraceContextPropagator, W3CBaggagePropagator } from "@opentelemetry/core";
 import { MongooseInstrumentation } from "opentelemetry-instrumentation-mongoose";
+import { B3InjectEncoding, B3Propagator } from "@opentelemetry/propagator-b3";
 
 const trace = new NodeSDK({
     resource: new Resource({
@@ -21,7 +22,14 @@ const trace = new NodeSDK({
         })
     ),
     textMapPropagator: new CompositePropagator({
-        propagators: [new JaegerPropagator(), new W3CTraceContextPropagator(), new W3CBaggagePropagator()],
+        propagators: [
+            new JaegerPropagator(),
+            new W3CTraceContextPropagator(),
+            new W3CBaggagePropagator(),
+            new B3Propagator({
+                injectEncoding: B3InjectEncoding.MULTI_HEADER,
+            }),
+        ],
     }),
     instrumentations: [
         new HttpInstrumentation({
