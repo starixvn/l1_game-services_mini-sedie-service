@@ -5,8 +5,11 @@ import constants from "./constants";
 import gameSettings from "./game-settings";
 import { generateResult, getSettlementResult, generateRawResultForHash } from "./helpers/result-helper";
 import MiniSeDieContainerRegistry from "./mini-sedie-container-registry";
+import trace from "./trace";
 
 const run = async () => {
+    trace.start();
+
     const definition = new Core.GameDefinition(gameSettings, generateResult, getSettlementResult, generateRawResultForHash);
     const gameData = new Core.GameData(gameSettings.durations.wholeRound, constants.resetTotalBets);
     const container = new MiniSeDieContainerRegistry().register(appConfigs, definition, gameData);
