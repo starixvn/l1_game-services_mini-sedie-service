@@ -10,6 +10,7 @@ import { CompositePropagator, W3CTraceContextPropagator, W3CBaggagePropagator } 
 import { MongooseInstrumentation } from "opentelemetry-instrumentation-mongoose";
 import { MongoDBInstrumentation } from "@opentelemetry/instrumentation-mongodb";
 import { B3InjectEncoding, B3Propagator } from "@opentelemetry/propagator-b3";
+import { AsyncLocalStorageContextManager } from "@opentelemetry/context-async-hooks";
 
 const trace = new NodeSDK({
     resource: new Resource({
@@ -22,6 +23,7 @@ const trace = new NodeSDK({
             endpoint: "http://10.10.50.69:14268/api/traces",
         })
     ),
+    contextManager: new AsyncLocalStorageContextManager(),
     textMapPropagator: new CompositePropagator({
         propagators: [
             new JaegerPropagator(),
