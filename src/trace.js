@@ -9,6 +9,7 @@ import { CompositePropagator, W3CTraceContextPropagator, W3CBaggagePropagator } 
 import { MongoDBInstrumentation } from "@opentelemetry/instrumentation-mongodb";
 import { B3InjectEncoding, B3Propagator } from "@opentelemetry/propagator-b3";
 import { AsyncLocalStorageContextManager } from "@opentelemetry/context-async-hooks";
+import { getNodeAutoInstrumentations } from "@opentelemetry/auto-instrumentations-node";
 
 const trace = new NodeSDK({
     resource: new Resource({
@@ -33,12 +34,14 @@ const trace = new NodeSDK({
         ],
     }),
     instrumentations: [
-        new HttpInstrumentation({
-            ignoreIncomingRequestHook: (req) => {
-                return req.method === "GET" && req.url.pathname === "/";
+        getNodeAutoInstrumentations({
+            // load custom configuration for http instrumentation
+            "@opentelemetry/instrumentation-http": {
+                ignoreIncomingRequestHook: (req) => {
+                    return req.method === "GET";
+                },
             },
         }),
-        new MongoDBInstrumentation(),
     ],
 });
 
