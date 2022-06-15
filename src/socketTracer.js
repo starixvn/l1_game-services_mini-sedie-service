@@ -8,6 +8,7 @@ import { B3InjectEncoding, B3Propagator } from "@opentelemetry/propagator-b3";
 import { Resource } from "@opentelemetry/resources";
 import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
 import { JaegerPropagator } from "@opentelemetry/propagator-jaeger";
+import { ConsoleSpanExporter, SimpleSpanProcessor } from "@opentelemetry/sdk-trace-base";
 
 const provider = new NodeTracerProvider({
     resource: new Resource({
@@ -19,14 +20,7 @@ registerInstrumentations({
     instrumentations: [new SocketIoInstrumentation()],
 });
 
-provider.addSpanProcessor(
-    new BatchSpanProcessor(
-        new JaegerExporter({
-            tags: [],
-            endpoint: "http://10.10.50.69:14268/api/traces",
-        })
-    )
-);
+provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
 
 provider.register({
     propagator: new CompositePropagator({
