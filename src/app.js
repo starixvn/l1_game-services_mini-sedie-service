@@ -5,9 +5,13 @@ import constants from "./constants";
 import gameSettings from "./game-settings";
 import { generateResult, getSettlementResult, generateRawResultForHash } from "./helpers/result-helper";
 import MiniSeDieContainerRegistry from "./mini-sedie-container-registry";
-import * as socketTracer from "./socketTracer";
+import trace from "./trace";
 
 const run = async () => {
+    trace.start().then(() => {
+        console.log("start node tracing");
+    });
+
     const definition = new Core.GameDefinition(gameSettings, generateResult, getSettlementResult, generateRawResultForHash);
     const gameData = new Core.GameData(gameSettings.durations.wholeRound, constants.resetTotalBets);
     const container = new MiniSeDieContainerRegistry().register(appConfigs, definition, gameData);

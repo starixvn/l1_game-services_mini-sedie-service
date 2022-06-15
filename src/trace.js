@@ -2,12 +2,10 @@ import { NodeSDK } from "@opentelemetry/sdk-node";
 import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-base";
 import { JaegerExporter } from "@opentelemetry/exporter-jaeger";
 import { JaegerPropagator } from "@opentelemetry/propagator-jaeger";
-import { SocketIoInstrumentation } from "opentelemetry-instrumentation-socket.io";
 import { Resource } from "@opentelemetry/resources";
 import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { CompositePropagator, W3CTraceContextPropagator, W3CBaggagePropagator } from "@opentelemetry/core";
-import { MongooseInstrumentation } from "opentelemetry-instrumentation-mongoose";
 import { MongoDBInstrumentation } from "@opentelemetry/instrumentation-mongodb";
 import { B3InjectEncoding, B3Propagator } from "@opentelemetry/propagator-b3";
 import { AsyncLocalStorageContextManager } from "@opentelemetry/context-async-hooks";
@@ -35,13 +33,11 @@ const trace = new NodeSDK({
         ],
     }),
     instrumentations: [
-        new SocketIoInstrumentation(),
         new HttpInstrumentation({
             ignoreIncomingRequestHook: (req) => {
                 return req.method === "GET" && req.url.pathname === "/";
             },
         }),
-        new MongooseInstrumentation(),
         new MongoDBInstrumentation(),
     ],
 });
