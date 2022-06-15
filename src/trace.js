@@ -35,15 +35,25 @@ const trace = new NodeSDK({
         ],
     }),
     instrumentations: [
+        new SocketIoInstrumentation(),
         new HttpInstrumentation({
             ignoreIncomingRequestHook: (req) => {
                 return req.method === "GET" && req.url.pathname === "/";
             },
         }),
         new MongooseInstrumentation(),
-        new SocketIoInstrumentation(),
         new MongoDBInstrumentation(),
     ],
+});
+
+process.on("SIGTERM", () => {
+    trace
+        .shutdown()
+        .then(
+            () => console.log("SDK shut down successfully"),
+            (err) => console.log("Error shutting down SDK", err)
+        )
+        .finally(() => process.exit(0));
 });
 
 export default trace;
