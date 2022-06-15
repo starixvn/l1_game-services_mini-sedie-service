@@ -13,12 +13,12 @@ const run = async () => {
     const container = new MiniSeDieContainerRegistry().register(appConfigs, definition, gameData);
     const app = new Core.BaseGameApp("MiniSeDie", appConfigs);
 
+    await app.run();
+    await app.startGame(container);
+
     trace.start().then(() => {
         console.log("start node tracing");
     });
-
-    await app.run();
-    await app.startGame(container);
 };
 
 run();
