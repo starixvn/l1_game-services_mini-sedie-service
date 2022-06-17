@@ -9,6 +9,7 @@ import { B3InjectEncoding, B3Propagator } from "@opentelemetry/propagator-b3";
 import { AsyncLocalStorageContextManager } from "@opentelemetry/context-async-hooks";
 import { MongooseInstrumentation } from "opentelemetry-instrumentation-mongoose";
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
+import { ExpressInstrumentation } from "@opentelemetry/instrumentation-express";
 
 const trace = new NodeSDK({
     resource: new Resource({
@@ -38,6 +39,7 @@ const trace = new NodeSDK({
                 return req.method === "GET";
             },
         }),
+        new ExpressInstrumentation(),
         new MongooseInstrumentation(),
     ],
 });
