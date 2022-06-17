@@ -10,6 +10,7 @@ import { AsyncLocalStorageContextManager } from "@opentelemetry/context-async-ho
 import { MongooseInstrumentation } from "opentelemetry-instrumentation-mongoose";
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { ExpressInstrumentation } from "@opentelemetry/instrumentation-express";
+import { SocketIoInstrumentation } from "opentelemetry-instrumentation-socket.io";
 
 const trace = new NodeSDK({
     resource: new Resource({
@@ -40,6 +41,7 @@ const trace = new NodeSDK({
             },
         }),
         new ExpressInstrumentation(),
+        new SocketIoInstrumentation(),
         new MongooseInstrumentation(),
     ],
 });
