@@ -7,7 +7,8 @@ import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions"
 import { CompositePropagator, W3CTraceContextPropagator, W3CBaggagePropagator } from "@opentelemetry/core";
 import { B3InjectEncoding, B3Propagator } from "@opentelemetry/propagator-b3";
 import { AsyncLocalStorageContextManager } from "@opentelemetry/context-async-hooks";
-import { getNodeAutoInstrumentations } from "@opentelemetry/auto-instrumentations-node";
+import { MongooseInstrumentation } from "opentelemetry-instrumentation-mongoose";
+import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 
 const trace = new NodeSDK({
     resource: new Resource({
@@ -32,14 +33,12 @@ const trace = new NodeSDK({
         ],
     }),
     instrumentations: [
-        getNodeAutoInstrumentations({
-            // load custom configuration for http instrumentation
-            "@opentelemetry/instrumentation-http": {
-                ignoreIncomingRequestHook: (req) => {
-                    return req.method === "GET";
-                },
+        new HttpInstrumentation({
+            ignoreIncomingRequestHook: (req) => {
+                return req.method === "GET";
             },
         }),
+        new MongooseInstrumentation(),
     ],
 });
 
