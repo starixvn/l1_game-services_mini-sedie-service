@@ -8,6 +8,8 @@ import MiniSeDieContainerRegistry from "./mini-sedie-container-registry";
 import trace from "./trace";
 
 const run = async () => {
+    await trace.start();
+
     const definition = new Core.GameDefinition(gameSettings, generateResult, getSettlementResult, generateRawResultForHash);
     const gameData = new Core.GameData(gameSettings.durations.wholeRound, constants.resetTotalBets);
     const container = new MiniSeDieContainerRegistry().register(appConfigs, definition, gameData);
@@ -15,10 +17,6 @@ const run = async () => {
 
     await app.run();
     await app.startGame(container);
-
-    trace.start().then(() => {
-        console.log("start node tracing");
-    });
 };
 
 run();
