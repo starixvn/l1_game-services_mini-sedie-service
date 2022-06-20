@@ -5,7 +5,6 @@ import constants from "./constants";
 import gameSettings from "./game-settings";
 import { generateResult, getSettlementResult, generateRawResultForHash } from "./helpers/result-helper";
 import MiniSeDieContainerRegistry from "./mini-sedie-container-registry";
-import trace from "./trace";
 
 const run = async () => {
     const definition = new Core.GameDefinition(gameSettings, generateResult, getSettlementResult, generateRawResultForHash);
@@ -15,7 +14,6 @@ const run = async () => {
 
     await app.run();
 
-    await trace.start();
     await app.startGame(container);
 };
 
