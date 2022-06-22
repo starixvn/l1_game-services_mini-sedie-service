@@ -1,5 +1,5 @@
 import { Core, Table } from "sc-game-base";
-import { initAPIStub } from "sc-game-service-integration-utils";
+import { initAPIStub, stubUserService } from "sc-game-service-integration-utils";
 
 import appConfigs from "../../../src/app-configs.IGT";
 import constants from "../../../src/constants";
@@ -9,6 +9,8 @@ import MiniSeDieContainerRegistry from "../../../src/mini-sedie-container-regist
 
 export const run = async () => {
     initAPIStub(appConfigs.apiSettings.apiUrl);
+    stubUserService(appConfigs);
+
     const definition = new Core.GameDefinition(gameSettings, generateResult, getSettlementResult, generateRawResultForHash);
     const gameData = new Table.TableGameData(gameSettings.durations.wholeRound, constants.resetTotalBets);
     const container = new MiniSeDieContainerRegistry().register(appConfigs, definition, gameData);
