@@ -8639,10 +8639,10 @@
     "socket.io-msgpack-parser" "^3.0.1"
     "socket.io-prom-metrics" "^1.0.3"
 
-"sc-game-base@3.1.0-beta.12":
-  "integrity" "sha512-srsuWAuUYZ5yefYF6HVAmNP7kIkm0j7ThorOG3PxRcw51f914KTtpkxMObySY33xEFOgt5qyeBFXsAhp5C4bXQ=="
-  "resolved" "http://npm.lumigame.com/sc-game-base/-/sc-game-base-3.1.0-beta.12.tgz"
-  "version" "3.1.0-beta.12"
+"sc-game-base@3.1.0-beta.14":
+  "integrity" "sha512-fPr6dn/5pQmlW0M/lmOxcoX9984ER7KEHzKEBrwCSSFbPQryXp6sodEEJiiz56ZZnIsOWHoIMIQOcbfwtLfGqg=="
+  "resolved" "http://npm.lumigame.com/sc-game-base/-/sc-game-base-3.1.0-beta.14.tgz"
+  "version" "3.1.0-beta.14"
   dependencies:
     "awilix" "^4.3.1"
     "axios" "^0.20.0"
@@ -8659,6 +8659,7 @@
     "sc-base-apis" "1.17.0"
     "sc-base-database" "1.10.0"
     "sc-common" "1.8.1"
+    "sc-instrument" "^0.0.1-beta.1"
     "socket.io" "^4.1.2"
     "socket.io-msgpack-parser" "^3.0.1"
     "socket.io-prom-metrics" "^1.0.3"
@@ -8672,6 +8673,13 @@
     "nock" "^13.2.1"
     "sc-game-base" "3.0.3-beta.0"
     "socket.io-client" "^4.4.0"
+
+"sc-instrument@^0.0.1-beta.1":
+  "integrity" "sha512-vtXvdV/+BWK7nr49WeAOyxNCBexIyRGwmihgm3vEs+t72Jpbt3U+b0xQfJemoYy07p+ZPweatN8DBuakGtznOg=="
+  "resolved" "http://npm.lumigame.com/sc-instrument/-/sc-instrument-0.0.1-beta.1.tgz"
+  "version" "0.0.1-beta.1"
+  dependencies:
+    "@opentelemetry/semantic-conventions" "^1.3.1"
 
 "sc-semantic-release@^1.1.0":
   "integrity" "sha512-izZqZiS8hL05cGzYbcR3+GZ1Oktr9rU1nIL05S9mZnEBm5nZfqzRkSpR2OHVJARjYsMI5dps0oUX1HjFV9x47w=="
