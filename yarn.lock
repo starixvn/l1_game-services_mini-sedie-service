@@ -8639,10 +8639,10 @@
     "socket.io-msgpack-parser" "^3.0.1"
     "socket.io-prom-metrics" "^1.0.3"
 
-"sc-game-base@3.1.0-beta.11":
-  "integrity" "sha512-a4MUImeYKOSLzNJfeyhIuxCvKKUhFdceR35gqntfOiLrtFL/QNP9Opulj2e9/O+VSl7YT6mgqdiFDC08gpk21w=="
-  "resolved" "http://npm.lumigame.com/sc-game-base/-/sc-game-base-3.1.0-beta.11.tgz"
-  "version" "3.1.0-beta.11"
+"sc-game-base@3.1.0-beta.12":
+  "integrity" "sha512-srsuWAuUYZ5yefYF6HVAmNP7kIkm0j7ThorOG3PxRcw51f914KTtpkxMObySY33xEFOgt5qyeBFXsAhp5C4bXQ=="
+  "resolved" "http://npm.lumigame.com/sc-game-base/-/sc-game-base-3.1.0-beta.12.tgz"
+  "version" "3.1.0-beta.12"
   dependencies:
     "awilix" "^4.3.1"
     "axios" "^0.20.0"
