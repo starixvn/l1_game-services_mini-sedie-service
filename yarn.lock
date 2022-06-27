@@ -8574,10 +8574,10 @@
     "socket.io-msgpack-parser" "^3.0.1"
     "socket.io-prom-metrics" "^1.0.3"
 
-"sc-game-base@3.1.0-beta.19":
-  "integrity" "sha512-7SEUneUSsaPEyuz0WndF7iyQ7MMWaoe9wQyMjsXFQqym0eXxO80ATpb/YDiO1/Df3BXdqyfveUUux6yT+Fq+0Q=="
-  "resolved" "http://npm.lumigame.com/sc-game-base/-/sc-game-base-3.1.0-beta.19.tgz"
-  "version" "3.1.0-beta.19"
+"sc-game-base@3.1.0-beta.20":
+  "integrity" "sha512-wdPEPo7hLMfbzdqmATJ0ns9v3g09buVk4zgQ5uk68yagSIZ0qk1UOkClZZz/dp17kjoTFBglhgvozB6eArATjg=="
+  "resolved" "http://npm.lumigame.com/sc-game-base/-/sc-game-base-3.1.0-beta.20.tgz"
+  "version" "3.1.0-beta.20"
   dependencies:
     "@opentelemetry/api" "^1.1.0"
     "@opentelemetry/context-async-hooks" "^1.3.1"
