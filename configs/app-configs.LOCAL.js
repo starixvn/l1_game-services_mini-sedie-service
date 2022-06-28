@@ -64,4 +64,7 @@ export default {
         "https://l1-mini.lumigame.com",
     ],
     enableMsgpackParser: false,
+    otel: {
+        jaegerCollectorUri: "http://10.10.50.69:14268/api/traces",
+    },
 };
