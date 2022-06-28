@@ -32,7 +32,7 @@ export default {
     },
     enabledLogs: true,
     database: {
-        url: "mongodb://localhost:27017",
+        url: "mongodb://127.0.0.1:27017",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -52,4 +52,7 @@ export default {
     enableCorsWs: false,
     corsUrls: ["http://localhost:7456", "http://localhost:7000", "http://games.lumigame.com", "http://admin.lumigame.com"],
     enableMsgpackParser: false,
+    otel: {
+        jaegerCollectorUri: "http://10.10.50.69:14268/api/traces",
+    },
 };

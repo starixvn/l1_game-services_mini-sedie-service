@@ -1,3 +1,4 @@
+import trace from "./trace";
 import { Core } from "sc-game-base";
 
 import appConfigs from "./app-configs";
