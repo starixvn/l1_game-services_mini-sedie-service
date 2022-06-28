@@ -4,8 +4,6 @@ import gameSettings from "./game-settings";
 
 const trace = initTrace(gameSettings.name, appConfigs.sentry.env, appConfigs.otel.jaegerCollectorUri);
 
-await trace.start();
-
 process.on("SIGTERM", () => {
     trace
         .shutdown()
