@@ -71,4 +71,12 @@ export default {
         "https://mini.gamesaba.com",
     ],
     enableMsgpackParser: true,
+    chatBotSettings: {
+        url: "https://bot.nexdev.net/skynex/api/messages/",
+        token: "0A40aOc7CtpzjbBSJu8KNWQRoXyjRvf9",
+        requestTimeout: 5000,
+        conversationIds: {
+            boostedOdds: -1001454857192,
+        },
+    },
 };
